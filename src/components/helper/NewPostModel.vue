@@ -16,7 +16,6 @@ export default {
     const imgUploadGetter = ref(null);
     const editPhoto = ref(false);
     const newPost = ref({
-      user: '62729881e8a0d4cba032e7bc',
       postContent: '',
       postImgUrl: '',
     });
@@ -45,6 +44,7 @@ export default {
           if (result.status) {
             newPost.value.postImgUrl = result.data;
           }
+          // postsData.addPost(newPost.value);
           postsData.addPost(newPost.value);
         } catch (e) {
           console.log(e);

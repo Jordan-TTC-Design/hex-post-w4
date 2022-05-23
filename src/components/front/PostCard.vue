@@ -1,8 +1,11 @@
 <script>
+import userStore from '@/stores/userStore';
+
 export default {
   props: ['post-item'],
   setup() {
-    return {};
+    const userData = userStore();
+    return { userData };
   },
 };
 </script>
@@ -10,9 +13,9 @@ export default {
 <template>
   <div class="postBox gap-3">
     <div class="userBox gap-3">
-      <img class="userBox__pic" :src="postItem.user.photo" :alt="`${postItem.user.name}照片`" />
+      <img class="userBox__pic" :src="userData.user.photo" :alt="`${userData.user.name}照片`" />
       <div>
-        <p class="userBox__title">{{ postItem.user.name }}</p>
+        <p class="userBox__title">{{ userData.user.name }}</p>
         <p class="userBox__subTxt">{{ postItem.creatAt }}</p>
       </div>
     </div>

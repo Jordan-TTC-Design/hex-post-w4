@@ -11,9 +11,9 @@ export default {
   },
   setup() {
     const postsData = postsStore();
-    const postSort = ref('asc');
+    const postSort = ref('desc');
     const postQuery = ref('');
-    postsData.getPosts();
+    postsData.getPosts(postSort.value);
     function sortPostsData() {
       postsData.getPosts(postSort.value, postQuery.value);
     }
@@ -34,8 +34,8 @@ export default {
       <div class="col-8">
         <div class="d-flex gap-3 mb-4">
           <select class="selectTool form-select" v-model="postSort" @change="sortPostsData">
-            <option selected value="asc">最新貼文</option>
-            <option selected value="desc">過去貼文</option>
+            <option value="desc">最新貼文</option>
+            <option  value="asc">過去貼文</option>
           </select>
           <div class="input-group inputToolContainer flex-grow-1">
             <input

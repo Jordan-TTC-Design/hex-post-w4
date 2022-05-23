@@ -27,6 +27,7 @@ const postsStore = defineStore({
     },
     addPost(data) {
       console.log(data);
+      console.log(data.postContent.length);
       axios
         .post('https://hex-post-w4.herokuapp.com/posts', data)
         .then((res) => {
